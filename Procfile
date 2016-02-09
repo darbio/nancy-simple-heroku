@@ -1,1 +1,1 @@
-web: mono src/bin/Nancy.Simple.exe
+web: mono Nancy.Simple.exe
