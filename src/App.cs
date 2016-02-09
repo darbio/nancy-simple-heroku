@@ -44,6 +44,8 @@ namespace Nancy.Simple
 			while (Console.ReadLine () != "quit");
 
 			Host.Stop ();
+
+			Console.WriteLine ("Nancy is stopped");
 		}
 	}
 }
