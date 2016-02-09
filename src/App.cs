@@ -38,8 +38,11 @@ namespace Nancy.Simple
 		{
 			Host = new NancyHost (CurrentAddress);
 			Host.Start ();
+
 			Console.WriteLine ("Nancy is started and listening on {0}...", CurrentAddress);
+
 			while (Console.ReadLine () != "quit");
+
 			Host.Stop ();
 		}
 	}
