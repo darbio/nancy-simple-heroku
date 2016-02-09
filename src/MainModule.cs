@@ -3,6 +3,7 @@ using System.Text;
 using System.Net;
 using System.Xml.Serialization;
 using Newtonsoft.Json;
+using Nancy.Simple.CachingExtensions;
 
 namespace Nancy.Simple
 {
@@ -28,11 +29,15 @@ namespace Nancy.Simple
 					 
 	                // Deserialize from XML
 					var serializer = new XmlSerializer(typeof(Ratings));
-					var ratings = serializer.Deserialize(stream);
-	                
+					var ratings = serializer.Deserialize(stream) as Ratings;
+					ratings.Updated = DateTime.UtcNow;
+
 	                // Serialize to JSON
 					var jsonRatings = JsonConvert.SerializeObject(ratings);
 	                
+					// Cache
+					this.Context.EnableOutputCache(30);
+
 	                // Return
 					var jsonBytes = Encoding.UTF8.GetBytes(jsonRatings);
 	                return new Response

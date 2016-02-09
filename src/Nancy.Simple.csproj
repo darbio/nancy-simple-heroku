@@ -53,9 +53,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="Nancy.Hosting.Self">
-      <HintPath>..\lib\Nancy.Hosting.Self.dll</HintPath>
-    </Reference>
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -67,7 +64,10 @@
     </Reference>
     <Reference Include="System.Net" />
     <Reference Include="Nancy">
-      <HintPath>..\packages\Nancy.0.20.0\lib\net40\Nancy.dll</HintPath>
+      <HintPath>..\packages\Nancy.1.4.3\lib\net40\Nancy.dll</HintPath>
+    </Reference>
+    <Reference Include="Nancy.Hosting.Self">
+      <HintPath>..\packages\Nancy.Hosting.Self.1.4.1\lib\net40\Nancy.Hosting.Self.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -75,7 +75,9 @@
     <Compile Include="App.cs" />
     <Compile Include="Domain\Ratings.cs" />
     <Compile Include="Domain\District.cs" />
-    <Compile Include="Bootstrapper.cs" />
+    <Compile Include="CachingBootstrapper.cs" />
+    <Compile Include="ContextExtensions.cs" />
+    <Compile Include="CachedResponse.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config">
