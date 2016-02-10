@@ -35,6 +35,8 @@ your Heroku hostname, remember to update `HOST`:
 $ heroku config:add HOST=<your new hostname>
 ```
 
+N.B. For Heroku, the HOST should be set to `localhost`
+
 ### Building
 
 ```shell

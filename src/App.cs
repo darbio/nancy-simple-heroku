@@ -10,14 +10,15 @@ namespace Nancy.Simple
 
 		static readonly string HOST = Environment.GetEnvironmentVariable ("HOST");
 		static readonly string PORT = Environment.GetEnvironmentVariable ("PORT");
+		static readonly string DYNO = Environment.GetEnvironmentVariable ("DYNO");
 
 		static NancyHost Host;
 
-		enum Env { Staging, Deployment }
+		enum Env { Staging, Deployment, Heroku }
 
 		static Env CurrentEnv {
 			get {
-				return HOST == null ? Env.Staging : Env.Deployment;
+				return HOST == null ? Env.Staging : DYNO == null ? Env.Deployment : Env.Heroku;
 			}
 		}
 
@@ -26,6 +27,8 @@ namespace Nancy.Simple
 				switch (CurrentEnv) {
 				case Env.Staging:
 					return new Uri ("http://localhost:" + StagingPort);
+				case Env.Heroku:
+					return new Uri ("http://localhost:" + PORT);
 				case Env.Deployment:
 					return new Uri ("http://" + HOST + ":" + PORT);
 				default:
