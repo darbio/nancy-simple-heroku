@@ -39,6 +39,8 @@ namespace Nancy.Simple
 
 		static void Main (string[] args)
 		{
+			Console.WriteLine ("Nancy is starting");
+
 			Host = new NancyHost (CurrentAddress);
 			Host.Start ();
 
