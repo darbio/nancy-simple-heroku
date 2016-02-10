@@ -72,13 +72,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MainModule.cs" />
     <Compile Include="App.cs" />
-    <Compile Include="Domain\Ratings.cs" />
-    <Compile Include="Domain\District.cs" />
-    <Compile Include="CachingBootstrapper.cs" />
-    <Compile Include="ContextExtensions.cs" />
-    <Compile Include="CachedResponse.cs" />
+    <Compile Include="api\HealthModule.cs" />
+    <Compile Include="api\v1\ExampleModule.cs" />
+    <Compile Include="Infrastructure\CachedResponse.cs" />
+    <Compile Include="Infrastructure\CachingBootstrapper.cs" />
+    <Compile Include="Infrastructure\ContextExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config">
@@ -95,6 +94,8 @@
   </Target>
   -->
   <ItemGroup>
-    <Folder Include="Domain\" />
+    <Folder Include="api\" />
+    <Folder Include="api\v1\" />
+    <Folder Include="Infrastructure\" />
   </ItemGroup>
 </Project>

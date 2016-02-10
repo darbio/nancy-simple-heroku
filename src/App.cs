@@ -27,10 +27,10 @@ namespace Nancy.Simple
 				switch (CurrentEnv) {
 				case Env.Staging:
 					return new Uri ("http://localhost:" + StagingPort);
-				case Env.Heroku:
-					return new Uri ("http://localhost:" + PORT);
 				case Env.Deployment:
 					return new Uri ("http://" + HOST + ":" + PORT);
+				case Env.Heroku:
+					return new Uri ("http://localhost:" + PORT);
 				default:
 					throw new Exception ("Unexpected environment");
 				}
